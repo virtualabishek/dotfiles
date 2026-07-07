@@ -618,6 +618,8 @@ binds {
     Mod+Space hotkey-overlay-title="Run an Application: Noctalia" { spawn "noctalia" "msg" "panel-toggle launcher"; }
     Mod+Ctrl+Space hotkey-overlay-title="Control Center: Noctalia" { spawn "noctalia" "msg" "panel-toggle control-center"; }
     Mod+Ctrl+Tab hotkey-overlay-title="Window Switcher: Noctalia" { spawn "noctalia" "msg" "window-switcher"; }
+    Mod+Alt+Tab hotkey-overlay-title="Settings: Noctalia" { spawn "noctalia" "msg" "settings-toggle"; }
+    Mod+Alt+Space hotkey-overlay-title="Settings: Noctalia" { spawn "noctalia" "msg" "settings-toggle"; }
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
