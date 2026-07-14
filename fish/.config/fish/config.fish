@@ -1,0 +1,19 @@
+if status is-interactive
+    set -gx BUN_INSTALL $HOME/.bun
+    fish_add_path $BUN_INSTALL/bin
+
+    set -g fish_greeting
+
+    alias t tmux
+    alias c opencode
+    alias f fastfetch
+end
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/home/abi/.local/bin" $PATH
+mise activate fish | source
+
+# >>> grok installer >>>
+fish_add_path $HOME/.grok/bin
+# <<< grok installer <<<

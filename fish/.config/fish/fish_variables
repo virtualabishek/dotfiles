@@ -1,0 +1,4 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export ANDROID_HOME:/opt/android\x2dsdk
+SETUVAR fish_user_paths:/opt/android\x2dsdk/cmdline\x2dtools/latest/bin\x1e/home/abi/\x2egrok/bin\x1e/home/abi/\x2elocal/bin\x1e/home/abi/\x2ebun/bin
