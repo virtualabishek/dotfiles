@@ -7,6 +7,8 @@ if status is-interactive
     alias t tmux
     alias c opencode
     alias f fastfetch
+
+    zoxide init fish --cmd cd | source
 end
 
 
