@@ -65,16 +65,16 @@ input {
 
 
 output "HDMI-A-1" {
-    position x=0 y=0
+    mode "1920x1080@60.000"
+    position x=1920 y=0
+    scale 1
+    transform "normal"
 }
 
 output "eDP-1" {
-    position x=1920 y=0
-    
-    mode "1920x1080@120.030"
-
+    mode "1920x1080@59.997"
+    position x=0 y=0
     scale 1
-
     transform "normal"
 }
 
@@ -292,12 +292,14 @@ window-rule {
 
 
 window-rule {
-    match app-id="Thunar"
-    default-column-width { proportion 0.5; }
+    match app-id="thunar"
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
 }
 
 window-rule {
-    match app-id="Thunar" title=r#"^Rename"#
+    match app-id="thunar" title=r#"^Rename"#
     open-floating true
     default-column-width { fixed 500; }
 }
@@ -322,11 +324,23 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
+// Global blur settings
+blur {
+    passes 3
+    offset 3
+    noise 0.02
+    saturation 1.5
+}
+
+// Global window effects: rounded corners + blur + slight transparency
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+    draw-border-with-background false
+    opacity 0.92
+    background-effect {
+        blur true
+    }
 }
 
 binds {
@@ -632,6 +646,9 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    // Duplicate/mirror focused output to projector
+    Mod+P repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
 }
 
 include "noctalia.kdl"

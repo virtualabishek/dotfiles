@@ -28,3 +28,4 @@ end
 
 # kimi-code
 fish_add_path -g "/home/abi/.kimi-code/bin"
+fnm env --use-on-cd | source
