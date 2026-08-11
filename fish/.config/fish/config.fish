@@ -4,6 +4,13 @@ if status is-interactive
 
     set -g fish_greeting
 
+    function tmux
+        if test (count $argv) -eq 0
+            command tmux new -A -s abi
+        else
+            command tmux $argv
+        end
+    end
     alias t tmux
     alias c opencode
     alias f fastfetch
@@ -29,3 +36,4 @@ end
 # kimi-code
 fish_add_path -g "/home/abi/.kimi-code/bin"
 fnm env --use-on-cd | source
+set -x LIBVIRT_DEFAULT_URI "qemu:///system"
