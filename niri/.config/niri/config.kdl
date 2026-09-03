@@ -4,6 +4,7 @@ spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
 environment {
     EDITOR "nvim"
     VISUAL "nvim"
+    TERMINAL "kitty"
 }
 
 input {
@@ -316,16 +317,10 @@ window-rule {
 
 
 window-rule {
-    match app-id=r#"^[Tt]hunar$"#
+    match app-id=r#"^org\.gnome\.Nautilus$"#
     open-floating true
     default-column-width { fixed 800; }
     default-window-height { fixed 600; }
-}
-
-window-rule {
-    match app-id=r#"^[Tt]hunar$"# title=r#"^Rename"#
-    open-floating true
-    default-column-width { fixed 500; }
 }
 
 window-rule {
@@ -334,6 +329,29 @@ window-rule {
     default-column-width { fixed 400; }
     default-window-height { fixed 600; }
 }
+// Kitty — default centered floating (1200x700), with tiling override for maximized
+window-rule {
+    match app-id="kitty"
+    open-floating true
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 700; }
+}
+
+window-rule {
+    match app-id="kitty" title="^kitty-maximized$"
+    open-floating false
+    default-column-width { proportion 1.0; }
+    default-window-height {}
+}
+
+window-rule {
+    match app-id="kitty" title="^kitty-btop$"
+    open-floating true
+    default-column-width { fixed 1200; }
+    default-window-height { fixed 700; }
+}
+
+// Keep foot compatibility (if still installed) — same centered logic
 window-rule {
     match app-id="^foot$" title="^foot-float$"
     open-floating true
@@ -438,15 +456,30 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
     draw-border-with-background false
-    opacity 0.92
+    opacity 0.96
     background-effect {
         blur true
     }
 }
 
-// Zen browser — fully opaque (no transparency)
+// Browsers / IDEs — fully opaque for text clarity
 window-rule {
     match app-id=r#"zen"#
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"code"#
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"zed"#
+    opacity 1.0
+}
+
+window-rule {
+    match app-id=r#"cursor"#
     opacity 1.0
 }
 
@@ -466,12 +499,12 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Ctrl+T hotkey-overlay-title="Open btop" { spawn "foot" "--title=foot-btop" "btop"; }
+    Mod+Ctrl+T hotkey-overlay-title="Open btop" { spawn "kitty" "--title=kitty-btop" "btop"; }
     Mod+B hotkey-overlay-title="Open Browser: Zen" { spawn "zen-browser"; }
     Mod+Shift+B hotkey-overlay-title="Open Browser: Brave" { spawn "brave"; }
-    Mod+Return hotkey-overlay-title="Open a Terminal (Floating)" { spawn "foot" "--title=foot-float"; }
-    Mod+Shift+Return hotkey-overlay-title="Open Terminal (Full Width)" { spawn "foot" "--title=foot-maximized"; }
-    Mod+E hotkey-overlay-title="Open File Manager: Thunar" { spawn "thunar"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty (Centered)" { spawn "kitty"; }
+    Mod+Shift+Return hotkey-overlay-title="Open Terminal (Full Width)" { spawn "kitty" "--title=kitty-maximized"; }
+    Mod+E hotkey-overlay-title="Open File Manager: Nautilus" { spawn "nautilus" "--new-window"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     // Mod+D hotkey-overlay-title="Run an Application: Noctalia" { spawn "noctalia" "msg" "panel-toggle launcher"; }
     Mod+Shift+L hotkey-overlay-title="Lock the Screen" { spawn "noctalia" "msg" "session" "lock"; }

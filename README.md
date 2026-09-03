@@ -10,8 +10,9 @@ My Arch Linux setup: [Niri](https://github.com/YaLTeR/niri) + [Noctalia](https:/
 .
 ├── fish/          # Fish shell config, functions & completions
 ├── fontconfig/    # JetBrainsMono Nerd Font as default monospace
-├── foot/          # Foot terminal emulator
+├── foot/          # Foot terminal (legacy, now kitty is default)
 ├── gtk/           # GTK3 theme
+├── kitty/         # Kitty terminal (default, centered 1200x700 via Niri)
 ├── niri/          # Niri window manager config (KDL)
 ├── noctalia/      # Noctalia compositor/shell config
 ├── nvim/          # Neovim config (LazyVim-based)
@@ -39,13 +40,13 @@ LazyVim-based. Clean, fast, gets out of your way.
 ## Getting Started
 
 ```bash
-sudo pacman -S niri foot fish tmux neovim gnu-stow fontconfig
+sudo pacman -S niri kitty foot fish tmux neovim gnu-stow fontconfig
 yay -S noctalia
 
 git clone https://github.com/virtualabishek/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-stow fish niri noctalia foot tmux gtk fontconfig nvim
+stow fish niri noctalia foot kitty tmux gtk fontconfig nvim
 ```
 
 This symlinks everything into `~/.config/`. Changed your mind? `stow --delete <package>` undoes it.
@@ -58,7 +59,7 @@ This symlinks everything into `~/.config/`. Changed your mind? `stow --delete <p
 
 | Key | Action |
 |---|---|
-| `Mod + Return` | Open foot terminal |
+| `Mod + Return` | Open kitty terminal (centered floating) |
 | `Mod + Q` | Close window |
 | `Mod + F` | Maximize column |
 | `Mod + Shift + F` | Fullscreen |
@@ -78,8 +79,8 @@ This symlinks everything into `~/.config/`. Changed your mind? `stow --delete <p
 | `Mod + ,` / `Mod + .` | Consume / expel window |
 | `Mod + B` | Zen Browser |
 | `Mod + Ctrl + B` | Brave Browser |
-| `Mod + Ctrl + T` | btop (in foot) |
-| `Mod + E` | Thunar file manager |
+| `Mod + Ctrl + T` | btop (in kitty) |
+| `Mod + E` | Nautilus file manager (floating 800x600) |
 | `Mod + Space` | Noctalia launcher |
 | `Mod + Shift + L` | Lock screen |
 | `Mod + Shift + T` | Toggle Noctalia bar |
@@ -156,7 +157,9 @@ This symlinks everything into `~/.config/`. Changed your mind? `stow --delete <p
 | `f` | fastfetch |
 | `tdl` | Terminal dev layout (3-pane tmux) |
 
-### Foot Terminal
+### Kitty Terminal (default)
+
+Scalable text: `Ctrl+Shift + = / -` to zoom, `Ctrl+Shift+0` reset. Font `JetBrainsMono Nerd Font 11.5` — stowed at `kitty/.config/kitty/kitty.conf`.
 
 | Key | Action |
 |---|---|
