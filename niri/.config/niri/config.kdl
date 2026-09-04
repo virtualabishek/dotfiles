@@ -351,26 +351,6 @@ window-rule {
     default-window-height { fixed 700; }
 }
 
-// Keep foot compatibility (if still installed) — same centered logic
-window-rule {
-    match app-id="^foot$" title="^foot-float$"
-    open-floating true
-    default-column-width { fixed 1200; }
-    default-window-height { fixed 700; }
-}
-
-window-rule {
-    match app-id="^foot$" title="^foot-maximized$"
-    default-column-width { proportion 1.0; }
-}
-
-window-rule {
-    match app-id="^foot$" title="^foot-btop$"
-    open-floating true
-    default-column-width { fixed 1200; }
-    default-window-height { fixed 700; }
-}
-
 
 
 window-rule {
