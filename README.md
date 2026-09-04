@@ -10,26 +10,20 @@ My Arch Linux setup: [Niri](https://github.com/YaLTeR/niri) + [Noctalia](https:/
 .
 ├── fish/          # Fish shell config, functions & completions
 ├── fontconfig/    # JetBrainsMono Nerd Font as default monospace
-├── foot/          # Foot terminal (legacy, now kitty is default)
 ├── gtk/           # GTK3 theme
 ├── kitty/         # Kitty terminal (default, centered 1200x700 via Niri)
 ├── niri/          # Niri window manager config (KDL)
 ├── noctalia/      # Noctalia compositor/shell config
-├── nvim/          # Neovim config (LazyVim-based)
-└── tmux/          # Tmux config with vi-mode keybinds
+└── nvim/          # Neovim config (LazyVim-based)
 ```
 
 ### Theme That Follows You
 
-Noctalia handles theming globally — set it once in the Noctalia control center and it pushes Tokyo-Night (with Gruvbox accents) into niri, foot, GTK, and everything else automatically. Pick a wallpaper there too. I don't manually sync theme files; Noctalia does that.
+Noctalia handles theming globally — set it once in the Noctalia control center and it pushes Tokyo-Night (with Gruvbox accents) into niri, kitty, GTK, and everything else automatically. Pick a wallpaper there too. I don't manually sync theme files; Noctalia does that.
 
 ### Fish Shell
 
-Aliases I actually use: `t` for tmux, `c` for opencode, `f` for fastfetch. Copilot and Grok completions baked in.
-
-### Tmux
-
-Prefix is `Ctrl+Space`. The `D` keybind spins up my daily driver: nvim + opencode + terminal in a three-pane layout.
+Aliases I actually use: `c` for opencode, `f` for fastfetch. `tdl c` / `tdl a` for kitty dev layout (nvim + opencode/agy). Copilot and Grok completions baked in.
 
 ### Neovim
 
@@ -40,13 +34,13 @@ LazyVim-based. Clean, fast, gets out of your way.
 ## Getting Started
 
 ```bash
-sudo pacman -S niri kitty foot fish tmux neovim gnu-stow fontconfig
+sudo pacman -S niri kitty fish neovim gnu-stow fontconfig
 yay -S noctalia
 
 git clone https://github.com/virtualabishek/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
-stow fish niri noctalia foot kitty tmux gtk fontconfig nvim
+stow fish niri noctalia kitty gtk fontconfig nvim
 ```
 
 This symlinks everything into `~/.config/`. Changed your mind? `stow --delete <package>` undoes it.
@@ -118,48 +112,18 @@ This symlinks everything into `~/.config/`. Changed your mind? `stow --delete <p
 | `Ctrl + Alt + Del` | Quit niri |
 | `Ctrl + Escape` | Toggle keyboard inhibit |
 
-### Tmux (Prefix = Ctrl+Space)
-
-| Key | Action |
-|---|---|
-| `Prefix + q` | Reload config |
-| `Prefix + h` | Split pane vertical |
-| `Prefix + v` | Split pane horizontal |
-| `Prefix + x` | Kill pane |
-| `Prefix + r` | Rename window |
-| `Prefix + c` | New window |
-| `Prefix + k` | Kill window |
-| `Prefix + R` | Rename session |
-| `Prefix + C` | New session |
-| `Prefix + K` | Kill session |
-| `Prefix + P / N` | Previous/next session |
-| `Prefix + D` | 3-pane dev layout (nvim + opencode + terminal) |
-| `Prefix + C-Space` | Send prefix |
-| `Alt + Enter` | Split pane vertical |
-| `Alt + Shift + Enter` | Split pane horizontal |
-| `Alt + Escape` | Kill pane |
-| `Ctrl + Alt + Arrow` | Navigate panes |
-| `Ctrl + Alt + Shift + Arrow` | Resize pane |
-| `Alt + 1-9` | Switch window |
-| `Alt + Left / Right` | Previous/next window |
-| `Alt + Shift + Left / Right` | Swap window |
-| `Alt + Up / Down` | Previous/next session |
-| _Copy mode (vi):_ | |
-| `v` (in copy-mode-vi) | Begin selection |
-| `y` (in copy-mode-vi) | Copy selection |
-
 ### Fish Shell Aliases
 
 | Command | Action |
 |---|---|
-| `t` | tmux |
 | `c` | opencode |
 | `f` | fastfetch |
-| `tdl` | Terminal dev layout (3-pane tmux) |
+| `tdl c` | Kitty dev layout: top 80% [nvim 70% \| opencode 30%] + bottom 20% [term 50% \| term 50%] |
+| `tdl a` | Kitty dev layout with `agy` (antigravity) |
 
 ### Kitty Terminal (default)
 
-Scalable text: `Ctrl+Shift + = / -` to zoom, `Ctrl+Shift+0` reset. Font `JetBrainsMono Nerd Font 11.5` — stowed at `kitty/.config/kitty/kitty.conf`.
+Scalable text: `Ctrl+Shift + = / -` to zoom, `Ctrl+Shift+0` reset. Font `JetBrainsMono Nerd Font 9.2` — stowed at `kitty/.config/kitty/kitty.conf`.
 
 | Key | Action |
 |---|---|

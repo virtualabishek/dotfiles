@@ -4,14 +4,6 @@ if status is-interactive
 
     set -g fish_greeting
 
-    function tmux
-        if test (count $argv) -eq 0
-            command tmux new -A -s abi
-        else
-            command tmux $argv
-        end
-    end
-    alias t tmux
     alias c opencode
     alias f fastfetch
 
