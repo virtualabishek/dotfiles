@@ -29,3 +29,6 @@ end
 fish_add_path -g "/home/abi/.kimi-code/bin"
 fnm env --use-on-cd | source
 set -x LIBVIRT_DEFAULT_URI "qemu:///system"
+
+# opencode
+fish_add_path /home/abi/.opencode/bin
