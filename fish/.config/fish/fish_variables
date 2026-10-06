@@ -1,4 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export ANDROID_HOME:/home/abi/Android/Sdk
-SETUVAR fish_user_paths:/home/abi/\x2eopencode/bin\x1e/home/abi/bin\x1e/home/abi/go/bin\x1e/home/abi/\x2econfig/herd\x2dlite/bin\x1e/home/abi/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/abi/\x2egrok/bin\x1e/home/abi/\x2elocal/bin\x1e/home/abi/\x2ebun/bin
+SETUVAR fish_user_paths:/home/abi/Android/Sdk/platform\x2dtools\x1e/usr/lib/jvm/java\x2d17\x2dopenjdk/bin\x1e/home/abi/\x2eopencode/bin\x1e/home/abi/bin\x1e/home/abi/go/bin\x1e/home/abi/\x2econfig/herd\x2dlite/bin\x1e/home/abi/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/abi/\x2egrok/bin\x1e/home/abi/\x2elocal/bin\x1e/home/abi/\x2ebun/bin

@@ -1,3 +1,12 @@
+# Java 17 for Android/Gradle (Expo RN 0.86 requires JDK 17)
+set -gx JAVA_HOME /usr/lib/jvm/java-17-openjdk
+fish_add_path $JAVA_HOME/bin
+
+# Android SDK (mirrors ~/.bashrc so `expo run:android` works in fish too)
+set -gx ANDROID_HOME $HOME/Android/Sdk
+set -gx ANDROID_SDK_ROOT $HOME/Android/Sdk
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin $ANDROID_HOME/platform-tools $ANDROID_HOME/emulator
+
 if status is-interactive
     set -gx BUN_INSTALL $HOME/.bun
     fish_add_path $BUN_INSTALL/bin
